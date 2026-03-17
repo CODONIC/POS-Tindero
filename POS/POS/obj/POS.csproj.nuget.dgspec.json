@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\visual stud repos\\POS\\POS\\POS.csproj": {}
+    "D:\\Albert\\Documents\\GitHub\\POS\\POS\\POS\\POS.csproj": {}
   },
   "projects": {
-    "E:\\visual stud repos\\POS\\POS\\POS.csproj": {
+    "D:\\Albert\\Documents\\GitHub\\POS\\POS\\POS\\POS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\visual stud repos\\POS\\POS\\POS.csproj",
+        "projectUniqueName": "D:\\Albert\\Documents\\GitHub\\POS\\POS\\POS\\POS.csproj",
         "projectName": "POS",
-        "projectPath": "E:\\visual stud repos\\POS\\POS\\POS.csproj",
+        "projectPath": "D:\\Albert\\Documents\\GitHub\\POS\\POS\\POS\\POS.csproj",
         "packagesPath": "C:\\Users\\Albert\\.nuget\\packages\\",
-        "outputPath": "E:\\visual stud repos\\POS\\POS\\obj\\",
+        "outputPath": "D:\\Albert\\Documents\\GitHub\\POS\\POS\\POS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

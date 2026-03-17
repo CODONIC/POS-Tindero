@@ -40,8 +40,12 @@
             txtUsername = new CustomControls.CustomTextBox();
             txtPassword = new CustomControls.CustomTextBox();
             label1 = new Label();
+            titleBar = new Panel();
+            closeButton = new Button();
+            titleLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            titleBar.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -195,6 +199,47 @@
             label1.TabIndex = 15;
             label1.Text = "Sign In";
             // 
+            // titleBar
+            // 
+            titleBar.BackColor = Color.FromArgb(44, 62, 80);
+            titleBar.Controls.Add(closeButton);
+            titleBar.Controls.Add(titleLabel);
+            titleBar.Dock = DockStyle.Top;
+            titleBar.Location = new Point(0, 0);
+            titleBar.Name = "titleBar";
+            titleBar.Size = new Size(679, 40);
+            titleBar.TabIndex = 16;
+            titleBar.MouseDown += TitleBar_MouseDown;
+            // 
+            // closeButton
+            // 
+            closeButton.BackColor = Color.FromArgb(44, 62, 80);
+            closeButton.BackgroundImageLayout = ImageLayout.None;
+            closeButton.Cursor = Cursors.Hand;
+            closeButton.FlatAppearance.BorderSize = 0;
+            closeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(231, 76, 60);
+            closeButton.FlatStyle = FlatStyle.Flat;
+            closeButton.ForeColor = Color.White;
+            closeButton.Location = new Point(638, 0);
+            closeButton.Name = "closeButton";
+            closeButton.Size = new Size(41, 40);
+            closeButton.TabIndex = 17;
+            closeButton.Text = " X";
+            closeButton.UseVisualStyleBackColor = false;
+            closeButton.Click += CloseButton_Click;
+            // 
+            // titleLabel
+            // 
+            titleLabel.AutoSize = true;
+            titleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            titleLabel.ForeColor = Color.White;
+            titleLabel.Location = new Point(12, 9);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new Size(100, 21);
+            titleLabel.TabIndex = 0;
+            titleLabel.Text = "POS System";
+            titleLabel.MouseDown += TitleBar_MouseDown;
+            // 
             // LogIn_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -202,6 +247,7 @@
             BackColor = SystemColors.Menu;
             ClientSize = new Size(679, 604);
             ControlBox = false;
+            Controls.Add(titleBar);
             Controls.Add(label1);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
@@ -211,11 +257,14 @@
             ForeColor = SystemColors.ActiveCaption;
             FormBorderStyle = FormBorderStyle.None;
             Name = "LogIn_Form";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LogIn Form";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            titleBar.ResumeLayout(false);
+            titleBar.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -233,5 +282,8 @@
         private Label label6;
         private CustomControls.CustomTextBox txtPassword;
         private Label label1;
+        private Panel titleBar;
+        private Label titleLabel;
+        private Button closeButton;
     }
 }
