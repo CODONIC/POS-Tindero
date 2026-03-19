@@ -12,4 +12,7 @@ public class Users : BaseModel
 
     [Column("password")]
     public string Password { get; set; }
+
+    [Column("role")]
+    public string Role { get; set; }
 }

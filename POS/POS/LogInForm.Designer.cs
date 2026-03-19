@@ -1,6 +1,6 @@
 ﻿namespace POS
 {
-    partial class LogIn_Form
+    partial class LogInForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             pictureBox1 = new PictureBox();
             btnSignIn = new RoundedButton();
             panel1 = new Panel();
@@ -66,7 +66,7 @@
             btnSignIn.BorderSize = 0;
             btnSignIn.FlatAppearance.BorderSize = 0;
             btnSignIn.FlatStyle = FlatStyle.Flat;
-            btnSignIn.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold);
+            btnSignIn.Font = new Font("Dubai", 13.75F, FontStyle.Bold);
             btnSignIn.ForeColor = Color.White;
             btnSignIn.Location = new Point(397, 346);
             btnSignIn.Name = "btnSignIn";
@@ -164,9 +164,8 @@
             txtUsername.TabIndex = 13;
             txtUsername.Text = "Username";
             txtUsername.Enter += txtUsername_Enter;
-            txtUsername.Leave += txtUsername_Leave;
             txtUsername.KeyDown += txt_KeyDown;
-
+            txtUsername.Leave += txtUsername_Leave;
             // 
             // txtPassword
             // 
@@ -188,9 +187,8 @@
             txtPassword.TabIndex = 14;
             txtPassword.Text = "Password";
             txtPassword.Enter += txtPassword_Enter;
-            txtPassword.Leave += txtPassword_Leave;
             txtPassword.KeyDown += txt_KeyDown;
-
+            txtPassword.Leave += txtPassword_Leave;
             // 
             // label1
             // 
@@ -213,7 +211,6 @@
             titleBar.Name = "titleBar";
             titleBar.Size = new Size(679, 40);
             titleBar.TabIndex = 16;
-            
             // 
             // closeButton
             // 
@@ -230,7 +227,6 @@
             closeButton.TabIndex = 17;
             closeButton.Text = " X";
             closeButton.UseVisualStyleBackColor = false;
-            
             // 
             // titleLabel
             // 
@@ -242,9 +238,8 @@
             titleLabel.Size = new Size(100, 21);
             titleLabel.TabIndex = 0;
             titleLabel.Text = "POS System";
-            
             // 
-            // LogIn_Form
+            // LogInForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -260,10 +255,9 @@
             Controls.Add(pictureBox1);
             ForeColor = SystemColors.ActiveCaption;
             FormBorderStyle = FormBorderStyle.None;
-            Name = "LogIn_Form";
+            Name = "LogInForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LogIn Form";
-            
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

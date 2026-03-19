@@ -20,7 +20,17 @@ namespace POS
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult confirm = MessageBox.Show(
+                "Are you sure you want to exit?",
+                "Confirm Exit",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirm == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void TitleBar_MouseDown(object sender, MouseEventArgs e)

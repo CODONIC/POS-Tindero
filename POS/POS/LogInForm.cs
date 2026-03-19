@@ -2,9 +2,9 @@
 using System;
 namespace POS
 {
-    public partial class LogIn_Form : BaseForm
+    public partial class LogInForm : BaseForm
     {
-        public LogIn_Form()
+        public LogInForm()
         {
             InitializeComponent();
             InitializeTitleBar(closeButton, titleBar, titleLabel);
@@ -65,15 +65,24 @@ namespace POS
 
                 if (result.Models.Count > 0)
                 {
-                    // Successful login
                     var user = result.Models.First();
-                    MessageBox.Show("Login Successful!", "Success",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // open main POS form
-                     MainDashboard main = new MainDashboard();
-                     main.Show();
-                     this.Hide();
+                    if (user.Role == "ADMIN")
+                    {
+                        AdminDashboard admin = new AdminDashboard();
+                        admin.Show();
+                        this.Hide();
+                    }
+                    else if (user.Role == "CASHIER")
+                    {
+                        CashierDashboard cashier = new CashierDashboard();
+                        cashier.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unknown role. Contact administrator.", "Access Denied",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {

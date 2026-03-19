@@ -12,7 +12,9 @@ namespace POS
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             await SupabaseService.InitializeAsync();
-            Application.Run(new LogIn_Form());
+            Application.Run(new LogInForm());
+            //Application.Run(new CashierDashboard()); 
+            //Application.Run(new AdminDashboard());
         }
     }
 }
