@@ -43,6 +43,8 @@
             titleBar = new Panel();
             closeButton = new Button();
             titleLabel = new Label();
+            label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             titleBar.SuspendLayout();
@@ -79,6 +81,8 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(41, 128, 185);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label6);
@@ -235,9 +239,31 @@
             titleLabel.ForeColor = Color.White;
             titleLabel.Location = new Point(12, 9);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(100, 21);
+            titleLabel.Size = new Size(104, 21);
             titleLabel.TabIndex = 0;
-            titleLabel.Text = "POS System";
+            titleLabel.Text = "Tindero POS";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ButtonFace;
+            label2.Location = new Point(12, 348);
+            label2.Name = "label2";
+            label2.Size = new Size(156, 20);
+            label2.TabIndex = 5;
+            label2.Text = "Password: admin123";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ButtonFace;
+            label3.Location = new Point(12, 328);
+            label3.Name = "label3";
+            label3.Size = new Size(140, 20);
+            label3.TabIndex = 6;
+            label3.Text = "Username: admin ";
             // 
             // LogInForm
             // 
@@ -283,5 +309,7 @@
         private Panel titleBar;
         private Label titleLabel;
         private Button closeButton;
+        private Label label3;
+        private Label label2;
     }
 }
