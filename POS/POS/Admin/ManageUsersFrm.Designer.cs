@@ -32,36 +32,36 @@
             titleLabel = new Label();
             titleBar = new Panel();
             closeButton = new Button();
-            dataGridView1 = new DataGridView();
+            dgvUsers = new DataGridView();
             label2 = new Label();
             panel1 = new Panel();
-            comboBox1 = new ComboBox();
+            dtpBirthdate = new DateTimePicker();
+            cmbUserLevel = new ComboBox();
             label11 = new Label();
-            customTextBox7 = new CustomControls.CustomTextBox();
+            txtContact = new CustomControls.CustomTextBox();
             label10 = new Label();
-            customTextBox6 = new CustomControls.CustomTextBox();
-            customTextBox5 = new CustomControls.CustomTextBox();
-            customTextBox4 = new CustomControls.CustomTextBox();
+            txtMiddleName = new CustomControls.CustomTextBox();
+            txtFirstName = new CustomControls.CustomTextBox();
+            txtLastName = new CustomControls.CustomTextBox();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
-            customTextBox3 = new CustomControls.CustomTextBox();
-            customTextBox2 = new CustomControls.CustomTextBox();
-            customTextBox1 = new CustomControls.CustomTextBox();
-            txtprodCode = new CustomControls.CustomTextBox();
+            txtPassword = new CustomControls.CustomTextBox();
+            txtAge = new CustomControls.CustomTextBox();
+            txtUsername = new CustomControls.CustomTextBox();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            roundedButton1 = new RoundedButton();
-            roundedButton2 = new RoundedButton();
-            roundedButton3 = new RoundedButton();
-            roundedButton4 = new RoundedButton();
-            customTextBox8 = new CustomControls.CustomTextBox();
+            btnAdd = new RoundedButton();
+            btnUpdate = new RoundedButton();
+            btnDelete = new RoundedButton();
+            btnClear = new RoundedButton();
+            txtSearch = new CustomControls.CustomTextBox();
             label12 = new Label();
             btnBack = new RoundedButton();
             titleBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -115,13 +115,13 @@
             closeButton.Text = " X";
             closeButton.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgvUsers
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(42, 127);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1201, 188);
-            dataGridView1.TabIndex = 19;
+            dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUsers.Location = new Point(42, 127);
+            dgvUsers.Name = "dgvUsers";
+            dgvUsers.Size = new Size(1201, 188);
+            dgvUsers.TabIndex = 19;
             // 
             // label2
             // 
@@ -138,20 +138,20 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLight;
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(dtpBirthdate);
+            panel1.Controls.Add(cmbUserLevel);
             panel1.Controls.Add(label11);
-            panel1.Controls.Add(customTextBox7);
+            panel1.Controls.Add(txtContact);
             panel1.Controls.Add(label10);
-            panel1.Controls.Add(customTextBox6);
-            panel1.Controls.Add(customTextBox5);
-            panel1.Controls.Add(customTextBox4);
+            panel1.Controls.Add(txtMiddleName);
+            panel1.Controls.Add(txtFirstName);
+            panel1.Controls.Add(txtLastName);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(label7);
-            panel1.Controls.Add(customTextBox3);
-            panel1.Controls.Add(customTextBox2);
-            panel1.Controls.Add(customTextBox1);
-            panel1.Controls.Add(txtprodCode);
+            panel1.Controls.Add(txtPassword);
+            panel1.Controls.Add(txtAge);
+            panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
@@ -161,13 +161,20 @@
             panel1.Size = new Size(1201, 299);
             panel1.TabIndex = 22;
             // 
-            // comboBox1
+            // dtpBirthdate
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(885, 195);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 41;
+            dtpBirthdate.Location = new Point(877, 83);
+            dtpBirthdate.Name = "dtpBirthdate";
+            dtpBirthdate.Size = new Size(200, 23);
+            dtpBirthdate.TabIndex = 42;
+            // 
+            // cmbUserLevel
+            // 
+            cmbUserLevel.FormattingEnabled = true;
+            cmbUserLevel.Location = new Point(885, 195);
+            cmbUserLevel.Name = "cmbUserLevel";
+            cmbUserLevel.Size = new Size(121, 23);
+            cmbUserLevel.TabIndex = 41;
             // 
             // label11
             // 
@@ -181,24 +188,24 @@
             label11.TabIndex = 40;
             label11.Text = "User Level:";
             // 
-            // customTextBox7
+            // txtContact
             // 
-            customTextBox7.BorderColor = SystemColors.ButtonFace;
-            customTextBox7.BorderFocusColor = Color.FromArgb(30, 45, 61);
-            customTextBox7.BorderRadius = 8;
-            customTextBox7.BorderThickness = 2;
-            customTextBox7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customTextBox7.ForeColor = SystemColors.GrayText;
-            customTextBox7.InnerBackColor = SystemColors.InactiveCaption;
-            customTextBox7.InnerForeColor = Color.Gray;
-            customTextBox7.IsPasswordField = false;
-            customTextBox7.Location = new Point(865, 132);
-            customTextBox7.Name = "customTextBox7";
-            customTextBox7.PasswordChar = '\0';
-            customTextBox7.PlaceholderColor = Color.Gray;
-            customTextBox7.PlaceholderText = "";
-            customTextBox7.Size = new Size(247, 39);
-            customTextBox7.TabIndex = 39;
+            txtContact.BorderColor = SystemColors.ButtonFace;
+            txtContact.BorderFocusColor = Color.FromArgb(30, 45, 61);
+            txtContact.BorderRadius = 8;
+            txtContact.BorderThickness = 2;
+            txtContact.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtContact.ForeColor = SystemColors.GrayText;
+            txtContact.InnerBackColor = SystemColors.InactiveCaption;
+            txtContact.InnerForeColor = Color.Gray;
+            txtContact.IsPasswordField = false;
+            txtContact.Location = new Point(865, 132);
+            txtContact.Name = "txtContact";
+            txtContact.PasswordChar = '\0';
+            txtContact.PlaceholderColor = Color.Gray;
+            txtContact.PlaceholderText = "";
+            txtContact.Size = new Size(247, 39);
+            txtContact.TabIndex = 39;
             // 
             // label10
             // 
@@ -212,62 +219,62 @@
             label10.TabIndex = 38;
             label10.Text = "Contact #:";
             // 
-            // customTextBox6
+            // txtMiddleName
             // 
-            customTextBox6.BorderColor = SystemColors.ButtonFace;
-            customTextBox6.BorderFocusColor = Color.FromArgb(30, 45, 61);
-            customTextBox6.BorderRadius = 8;
-            customTextBox6.BorderThickness = 2;
-            customTextBox6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customTextBox6.ForeColor = SystemColors.GrayText;
-            customTextBox6.InnerBackColor = SystemColors.InactiveCaption;
-            customTextBox6.InnerForeColor = Color.Gray;
-            customTextBox6.IsPasswordField = false;
-            customTextBox6.Location = new Point(198, 231);
-            customTextBox6.Name = "customTextBox6";
-            customTextBox6.PasswordChar = '\0';
-            customTextBox6.PlaceholderColor = Color.Gray;
-            customTextBox6.PlaceholderText = "";
-            customTextBox6.Size = new Size(326, 39);
-            customTextBox6.TabIndex = 37;
+            txtMiddleName.BorderColor = SystemColors.ButtonFace;
+            txtMiddleName.BorderFocusColor = Color.FromArgb(30, 45, 61);
+            txtMiddleName.BorderRadius = 8;
+            txtMiddleName.BorderThickness = 2;
+            txtMiddleName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtMiddleName.ForeColor = SystemColors.GrayText;
+            txtMiddleName.InnerBackColor = SystemColors.InactiveCaption;
+            txtMiddleName.InnerForeColor = Color.Gray;
+            txtMiddleName.IsPasswordField = false;
+            txtMiddleName.Location = new Point(198, 231);
+            txtMiddleName.Name = "txtMiddleName";
+            txtMiddleName.PasswordChar = '\0';
+            txtMiddleName.PlaceholderColor = Color.Gray;
+            txtMiddleName.PlaceholderText = "";
+            txtMiddleName.Size = new Size(326, 39);
+            txtMiddleName.TabIndex = 37;
             // 
-            // customTextBox5
+            // txtFirstName
             // 
-            customTextBox5.BorderColor = SystemColors.ButtonFace;
-            customTextBox5.BorderFocusColor = Color.FromArgb(30, 45, 61);
-            customTextBox5.BorderRadius = 8;
-            customTextBox5.BorderThickness = 2;
-            customTextBox5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customTextBox5.ForeColor = SystemColors.GrayText;
-            customTextBox5.InnerBackColor = SystemColors.InactiveCaption;
-            customTextBox5.InnerForeColor = Color.Gray;
-            customTextBox5.IsPasswordField = false;
-            customTextBox5.Location = new Point(198, 186);
-            customTextBox5.Name = "customTextBox5";
-            customTextBox5.PasswordChar = '\0';
-            customTextBox5.PlaceholderColor = Color.Gray;
-            customTextBox5.PlaceholderText = "";
-            customTextBox5.Size = new Size(326, 39);
-            customTextBox5.TabIndex = 36;
+            txtFirstName.BorderColor = SystemColors.ButtonFace;
+            txtFirstName.BorderFocusColor = Color.FromArgb(30, 45, 61);
+            txtFirstName.BorderRadius = 8;
+            txtFirstName.BorderThickness = 2;
+            txtFirstName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtFirstName.ForeColor = SystemColors.GrayText;
+            txtFirstName.InnerBackColor = SystemColors.InactiveCaption;
+            txtFirstName.InnerForeColor = Color.Gray;
+            txtFirstName.IsPasswordField = false;
+            txtFirstName.Location = new Point(198, 186);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.PasswordChar = '\0';
+            txtFirstName.PlaceholderColor = Color.Gray;
+            txtFirstName.PlaceholderText = "";
+            txtFirstName.Size = new Size(326, 39);
+            txtFirstName.TabIndex = 36;
             // 
-            // customTextBox4
+            // txtLastName
             // 
-            customTextBox4.BorderColor = SystemColors.ButtonFace;
-            customTextBox4.BorderFocusColor = Color.FromArgb(30, 45, 61);
-            customTextBox4.BorderRadius = 8;
-            customTextBox4.BorderThickness = 2;
-            customTextBox4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customTextBox4.ForeColor = SystemColors.GrayText;
-            customTextBox4.InnerBackColor = SystemColors.InactiveCaption;
-            customTextBox4.InnerForeColor = Color.Gray;
-            customTextBox4.IsPasswordField = false;
-            customTextBox4.Location = new Point(198, 132);
-            customTextBox4.Name = "customTextBox4";
-            customTextBox4.PasswordChar = '\0';
-            customTextBox4.PlaceholderColor = Color.Gray;
-            customTextBox4.PlaceholderText = "";
-            customTextBox4.Size = new Size(326, 39);
-            customTextBox4.TabIndex = 35;
+            txtLastName.BorderColor = SystemColors.ButtonFace;
+            txtLastName.BorderFocusColor = Color.FromArgb(30, 45, 61);
+            txtLastName.BorderRadius = 8;
+            txtLastName.BorderThickness = 2;
+            txtLastName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtLastName.ForeColor = SystemColors.GrayText;
+            txtLastName.InnerBackColor = SystemColors.InactiveCaption;
+            txtLastName.InnerForeColor = Color.Gray;
+            txtLastName.IsPasswordField = false;
+            txtLastName.Location = new Point(198, 132);
+            txtLastName.Name = "txtLastName";
+            txtLastName.PasswordChar = '\0';
+            txtLastName.PlaceholderColor = Color.Gray;
+            txtLastName.PlaceholderText = "";
+            txtLastName.Size = new Size(326, 39);
+            txtLastName.TabIndex = 35;
             // 
             // label9
             // 
@@ -305,81 +312,62 @@
             label7.TabIndex = 32;
             label7.Text = "Last Name:";
             // 
-            // customTextBox3
+            // txtPassword
             // 
-            customTextBox3.BorderColor = SystemColors.ButtonFace;
-            customTextBox3.BorderFocusColor = Color.FromArgb(30, 45, 61);
-            customTextBox3.BorderRadius = 8;
-            customTextBox3.BorderThickness = 2;
-            customTextBox3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customTextBox3.ForeColor = SystemColors.GrayText;
-            customTextBox3.InnerBackColor = SystemColors.InactiveCaption;
-            customTextBox3.InnerForeColor = Color.Gray;
-            customTextBox3.IsPasswordField = false;
-            customTextBox3.Location = new Point(198, 77);
-            customTextBox3.Name = "customTextBox3";
-            customTextBox3.PasswordChar = '\0';
-            customTextBox3.PlaceholderColor = Color.Gray;
-            customTextBox3.PlaceholderText = "";
-            customTextBox3.Size = new Size(326, 39);
-            customTextBox3.TabIndex = 31;
+            txtPassword.BorderColor = SystemColors.ButtonFace;
+            txtPassword.BorderFocusColor = Color.FromArgb(30, 45, 61);
+            txtPassword.BorderRadius = 8;
+            txtPassword.BorderThickness = 2;
+            txtPassword.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPassword.ForeColor = SystemColors.GrayText;
+            txtPassword.InnerBackColor = SystemColors.InactiveCaption;
+            txtPassword.InnerForeColor = Color.Gray;
+            txtPassword.IsPasswordField = false;
+            txtPassword.Location = new Point(198, 77);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '\0';
+            txtPassword.PlaceholderColor = Color.Gray;
+            txtPassword.PlaceholderText = "";
+            txtPassword.Size = new Size(326, 39);
+            txtPassword.TabIndex = 31;
             // 
-            // customTextBox2
+            // txtAge
             // 
-            customTextBox2.BorderColor = SystemColors.ButtonFace;
-            customTextBox2.BorderFocusColor = Color.FromArgb(30, 45, 61);
-            customTextBox2.BorderRadius = 8;
-            customTextBox2.BorderThickness = 2;
-            customTextBox2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customTextBox2.ForeColor = SystemColors.GrayText;
-            customTextBox2.InnerBackColor = SystemColors.InactiveCaption;
-            customTextBox2.InnerForeColor = Color.Gray;
-            customTextBox2.IsPasswordField = false;
-            customTextBox2.Location = new Point(865, 77);
-            customTextBox2.Name = "customTextBox2";
-            customTextBox2.PasswordChar = '\0';
-            customTextBox2.PlaceholderColor = Color.Gray;
-            customTextBox2.PlaceholderText = "";
-            customTextBox2.Size = new Size(247, 39);
-            customTextBox2.TabIndex = 30;
+            txtAge.BorderColor = SystemColors.ButtonFace;
+            txtAge.BorderFocusColor = Color.FromArgb(30, 45, 61);
+            txtAge.BorderRadius = 8;
+            txtAge.BorderThickness = 2;
+            txtAge.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtAge.ForeColor = SystemColors.GrayText;
+            txtAge.InnerBackColor = SystemColors.InactiveCaption;
+            txtAge.InnerForeColor = Color.Gray;
+            txtAge.IsPasswordField = false;
+            txtAge.Location = new Point(865, 23);
+            txtAge.Name = "txtAge";
+            txtAge.PasswordChar = '\0';
+            txtAge.PlaceholderColor = Color.Gray;
+            txtAge.PlaceholderText = "";
+            txtAge.Size = new Size(247, 39);
+            txtAge.TabIndex = 29;
             // 
-            // customTextBox1
+            // txtUsername
             // 
-            customTextBox1.BorderColor = SystemColors.ButtonFace;
-            customTextBox1.BorderFocusColor = Color.FromArgb(30, 45, 61);
-            customTextBox1.BorderRadius = 8;
-            customTextBox1.BorderThickness = 2;
-            customTextBox1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customTextBox1.ForeColor = SystemColors.GrayText;
-            customTextBox1.InnerBackColor = SystemColors.InactiveCaption;
-            customTextBox1.InnerForeColor = Color.Gray;
-            customTextBox1.IsPasswordField = false;
-            customTextBox1.Location = new Point(865, 23);
-            customTextBox1.Name = "customTextBox1";
-            customTextBox1.PasswordChar = '\0';
-            customTextBox1.PlaceholderColor = Color.Gray;
-            customTextBox1.PlaceholderText = "";
-            customTextBox1.Size = new Size(247, 39);
-            customTextBox1.TabIndex = 29;
-            // 
-            // txtprodCode
-            // 
-            txtprodCode.BorderColor = SystemColors.ButtonFace;
-            txtprodCode.BorderFocusColor = Color.FromArgb(30, 45, 61);
-            txtprodCode.BorderRadius = 8;
-            txtprodCode.BorderThickness = 2;
-            txtprodCode.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtprodCode.ForeColor = SystemColors.GrayText;
-            txtprodCode.InnerBackColor = SystemColors.InactiveCaption;
-            txtprodCode.InnerForeColor = Color.Gray;
-            txtprodCode.IsPasswordField = false;
-            txtprodCode.Location = new Point(198, 23);
-            txtprodCode.Name = "txtprodCode";
-            txtprodCode.PasswordChar = '\0';
-            txtprodCode.PlaceholderColor = Color.Gray;
-            txtprodCode.PlaceholderText = "";
-            txtprodCode.Size = new Size(326, 39);
-            txtprodCode.TabIndex = 28;
+            txtUsername.BorderColor = SystemColors.ButtonFace;
+            txtUsername.BorderFocusColor = Color.FromArgb(30, 45, 61);
+            txtUsername.BorderRadius = 8;
+            txtUsername.BorderThickness = 2;
+            txtUsername.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtUsername.ForeColor = SystemColors.GrayText;
+            txtUsername.InnerBackColor = SystemColors.InactiveCaption;
+            txtUsername.InnerForeColor = Color.Gray;
+            txtUsername.IsPasswordField = false;
+            txtUsername.Location = new Point(198, 23);
+            txtUsername.Name = "txtUsername";
+            txtUsername.PasswordChar = '\0';
+            txtUsername.PlaceholderColor = Color.Gray;
+            txtUsername.PlaceholderText = "";
+            txtUsername.Size = new Size(326, 39);
+            txtUsername.TabIndex = 28;
             // 
             // label6
             // 
@@ -429,92 +417,97 @@
             label3.TabIndex = 22;
             label3.Text = "Username:";
             // 
-            // roundedButton1
+            // btnAdd
             // 
-            roundedButton1.BackColor = Color.SteelBlue;
-            roundedButton1.BorderColor = Color.Transparent;
-            roundedButton1.BorderRadius = 20;
-            roundedButton1.BorderSize = 0;
-            roundedButton1.FlatAppearance.BorderSize = 0;
-            roundedButton1.FlatStyle = FlatStyle.Flat;
-            roundedButton1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            roundedButton1.ForeColor = Color.White;
-            roundedButton1.Location = new Point(120, 646);
-            roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(192, 62);
-            roundedButton1.TabIndex = 36;
-            roundedButton1.Text = "ADD ";
-            roundedButton1.UseVisualStyleBackColor = false;
+            btnAdd.BackColor = Color.SteelBlue;
+            btnAdd.BorderColor = Color.Transparent;
+            btnAdd.BorderRadius = 20;
+            btnAdd.BorderSize = 0;
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.White;
+            btnAdd.Location = new Point(120, 646);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(192, 62);
+            btnAdd.TabIndex = 36;
+            btnAdd.Text = "ADD ";
+            btnAdd.UseVisualStyleBackColor = false;
+            
             // 
-            // roundedButton2
+            // btnUpdate
             // 
-            roundedButton2.BackColor = Color.SteelBlue;
-            roundedButton2.BorderColor = Color.Transparent;
-            roundedButton2.BorderRadius = 20;
-            roundedButton2.BorderSize = 0;
-            roundedButton2.FlatAppearance.BorderSize = 0;
-            roundedButton2.FlatStyle = FlatStyle.Flat;
-            roundedButton2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            roundedButton2.ForeColor = Color.White;
-            roundedButton2.Location = new Point(386, 646);
-            roundedButton2.Name = "roundedButton2";
-            roundedButton2.Size = new Size(192, 62);
-            roundedButton2.TabIndex = 37;
-            roundedButton2.Text = "UPDATE";
-            roundedButton2.UseVisualStyleBackColor = false;
+            btnUpdate.BackColor = Color.SteelBlue;
+            btnUpdate.BorderColor = Color.Transparent;
+            btnUpdate.BorderRadius = 20;
+            btnUpdate.BorderSize = 0;
+            btnUpdate.FlatAppearance.BorderSize = 0;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.Location = new Point(386, 646);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(192, 62);
+            btnUpdate.TabIndex = 37;
+            btnUpdate.Text = "UPDATE";
+            btnUpdate.UseVisualStyleBackColor = false;
+            
             // 
-            // roundedButton3
+            // btnDelete
             // 
-            roundedButton3.BackColor = Color.SteelBlue;
-            roundedButton3.BorderColor = Color.Transparent;
-            roundedButton3.BorderRadius = 20;
-            roundedButton3.BorderSize = 0;
-            roundedButton3.FlatAppearance.BorderSize = 0;
-            roundedButton3.FlatStyle = FlatStyle.Flat;
-            roundedButton3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            roundedButton3.ForeColor = Color.White;
-            roundedButton3.Location = new Point(655, 646);
-            roundedButton3.Name = "roundedButton3";
-            roundedButton3.Size = new Size(192, 62);
-            roundedButton3.TabIndex = 38;
-            roundedButton3.Text = "DELETE";
-            roundedButton3.UseVisualStyleBackColor = false;
+            btnDelete.BackColor = Color.SteelBlue;
+            btnDelete.BorderColor = Color.Transparent;
+            btnDelete.BorderRadius = 20;
+            btnDelete.BorderSize = 0;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDelete.ForeColor = Color.White;
+            btnDelete.Location = new Point(655, 646);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(192, 62);
+            btnDelete.TabIndex = 38;
+            btnDelete.Text = "DELETE";
+            btnDelete.UseVisualStyleBackColor = false;
+            
             // 
-            // roundedButton4
+            // btnClear
             // 
-            roundedButton4.BackColor = Color.SteelBlue;
-            roundedButton4.BorderColor = Color.Transparent;
-            roundedButton4.BorderRadius = 20;
-            roundedButton4.BorderSize = 0;
-            roundedButton4.FlatAppearance.BorderSize = 0;
-            roundedButton4.FlatStyle = FlatStyle.Flat;
-            roundedButton4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            roundedButton4.ForeColor = Color.White;
-            roundedButton4.Location = new Point(927, 646);
-            roundedButton4.Name = "roundedButton4";
-            roundedButton4.Size = new Size(192, 62);
-            roundedButton4.TabIndex = 42;
-            roundedButton4.Text = "CLEAR";
-            roundedButton4.UseVisualStyleBackColor = false;
+            btnClear.BackColor = Color.SteelBlue;
+            btnClear.BorderColor = Color.Transparent;
+            btnClear.BorderRadius = 20;
+            btnClear.BorderSize = 0;
+            btnClear.FlatAppearance.BorderSize = 0;
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClear.ForeColor = Color.White;
+            btnClear.Location = new Point(927, 646);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(192, 62);
+            btnClear.TabIndex = 42;
+            btnClear.Text = "CLEAR";
+            btnClear.UseVisualStyleBackColor = false;
+            
             // 
-            // customTextBox8
+            // txtSearch
             // 
-            customTextBox8.BorderColor = SystemColors.ButtonFace;
-            customTextBox8.BorderFocusColor = Color.FromArgb(30, 45, 61);
-            customTextBox8.BorderRadius = 8;
-            customTextBox8.BorderThickness = 2;
-            customTextBox8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customTextBox8.ForeColor = SystemColors.GrayText;
-            customTextBox8.InnerBackColor = SystemColors.InactiveCaption;
-            customTextBox8.InnerForeColor = Color.Gray;
-            customTextBox8.IsPasswordField = false;
-            customTextBox8.Location = new Point(42, 73);
-            customTextBox8.Name = "customTextBox8";
-            customTextBox8.PasswordChar = '\0';
-            customTextBox8.PlaceholderColor = Color.Gray;
-            customTextBox8.PlaceholderText = "";
-            customTextBox8.Size = new Size(1201, 39);
-            customTextBox8.TabIndex = 43;
+            txtSearch.BorderColor = SystemColors.ButtonFace;
+            txtSearch.BorderFocusColor = Color.FromArgb(30, 45, 61);
+            txtSearch.BorderRadius = 8;
+            txtSearch.BorderThickness = 2;
+            txtSearch.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtSearch.ForeColor = SystemColors.GrayText;
+            txtSearch.InnerBackColor = SystemColors.InactiveCaption;
+            txtSearch.InnerForeColor = Color.Gray;
+            txtSearch.IsPasswordField = false;
+            txtSearch.Location = new Point(42, 73);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PasswordChar = '\0';
+            txtSearch.PlaceholderColor = Color.Gray;
+            txtSearch.PlaceholderText = "";
+            txtSearch.Size = new Size(1201, 39);
+            txtSearch.TabIndex = 43;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label12
             // 
@@ -554,14 +547,14 @@
             ClientSize = new Size(1280, 720);
             Controls.Add(btnBack);
             Controls.Add(label12);
-            Controls.Add(customTextBox8);
-            Controls.Add(roundedButton4);
-            Controls.Add(roundedButton3);
-            Controls.Add(roundedButton2);
-            Controls.Add(roundedButton1);
+            Controls.Add(txtSearch);
+            Controls.Add(btnClear);
+            Controls.Add(btnDelete);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnAdd);
             Controls.Add(label2);
             Controls.Add(panel1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvUsers);
             Controls.Add(titleBar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ManageUsersFrm";
@@ -569,7 +562,7 @@
             Text = "ManageUsersFrm";
             titleBar.ResumeLayout(false);
             titleBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUsers).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -582,33 +575,33 @@
         private Label titleLabel;
         private Panel titleBar;
         private Button closeButton;
-        private DataGridView dataGridView1;
+        private DataGridView dgvUsers;
         private Label label2;
         private Panel panel1;
-        private CustomControls.CustomTextBox customTextBox3;
-        private CustomControls.CustomTextBox customTextBox2;
-        private CustomControls.CustomTextBox customTextBox1;
-        private CustomControls.CustomTextBox txtprodCode;
+        private CustomControls.CustomTextBox txtPassword;
+        private CustomControls.CustomTextBox txtAge;
+        private CustomControls.CustomTextBox txtUsername;
         private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
-        private ComboBox comboBox1;
+        private ComboBox cmbUserLevel;
         private Label label11;
-        private CustomControls.CustomTextBox customTextBox7;
+        private CustomControls.CustomTextBox txtContact;
         private Label label10;
-        private CustomControls.CustomTextBox customTextBox6;
-        private CustomControls.CustomTextBox customTextBox5;
-        private CustomControls.CustomTextBox customTextBox4;
+        private CustomControls.CustomTextBox txtMiddleName;
+        private CustomControls.CustomTextBox txtFirstName;
+        private CustomControls.CustomTextBox txtLastName;
         private Label label9;
         private Label label8;
         private Label label7;
-        private RoundedButton roundedButton1;
-        private RoundedButton roundedButton2;
-        private RoundedButton roundedButton3;
-        private RoundedButton roundedButton4;
-        private CustomControls.CustomTextBox customTextBox8;
+        private RoundedButton btnAdd;
+        private RoundedButton btnUpdate;
+        private RoundedButton btnDelete;
+        private RoundedButton btnClear;
+        private CustomControls.CustomTextBox txtSearch;
         private Label label12;
         private RoundedButton btnBack;
+        private DateTimePicker dtpBirthdate;
     }
 }
