@@ -15,7 +15,7 @@ namespace POS
     {
         private string _username;
         private string _companyName;
-
+        
         public AdminDashboard(string username, string companyName)
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace POS
             _companyName = companyName;
             lblAdminName.Text = $"{_username} | Admin";
             titleLabel.Text = $"{_companyName} ";
+            Console.WriteLine("AdminDashboard initialized with username: " + _username + " and companyName: " + _companyName);
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
