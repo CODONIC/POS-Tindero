@@ -19,6 +19,20 @@ namespace POS
             string password = txtPassword.Text;
             string company = txtCompany.Text.Trim();
 
+            //Save immediately if checkbox is checked (even before validation)
+            if (chckUserComp.Checked)
+            {
+                SaveUserCompany(username, company);
+            }
+
+            if (string.IsNullOrEmpty(username) || username == "Username" && string.IsNullOrEmpty(password) || password == "Password" && string.IsNullOrEmpty(company) || company == "Company Name")
+            {
+                MessageBox.Show("Please fill all of the text boxes.", "Login Failed",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUsername.FocusInner();
+                return;
+            }
+
             if (string.IsNullOrEmpty(username) || username == "Username")
             {
                 MessageBox.Show("Please enter a username.", "Login Failed",
@@ -48,7 +62,7 @@ namespace POS
                 await using var conn = DatabaseService.GetConnection();
                 await conn.OpenAsync();
 
-                //Check if company exists
+                // Check company
                 string companySql = "SELECT id FROM companies WHERE LOWER(name) = LOWER(@company)";
                 await using var companyCmd = new NpgsqlCommand(companySql, conn);
                 companyCmd.Parameters.AddWithValue("company", company);
@@ -63,20 +77,21 @@ namespace POS
                     return;
                 }
 
-                //Check if username exists under that company
+                // Check user
                 string userSql = @"
-            SELECT u.password, u.role, c.name AS company_name
-            FROM users u
-            JOIN companies c ON u.company_id = c.id
-            WHERE u.username = @username
-            AND LOWER(c.name) = LOWER(@company)";
+                    SELECT u.password, u.role, c.name AS company_name
+                    FROM users u
+                    JOIN companies c ON u.company_id = c.id
+                    WHERE u.username = @username
+                    AND LOWER(c.name) = LOWER(@company)";
 
                 await using var userCmd = new NpgsqlCommand(userSql, conn);
                 userCmd.Parameters.AddWithValue("username", username);
                 userCmd.Parameters.AddWithValue("company", company);
-                await using var userReader = await userCmd.ExecuteReaderAsync();
 
-                if (!await userReader.ReadAsync())
+                await using var reader = await userCmd.ExecuteReaderAsync();
+
+                if (!await reader.ReadAsync())
                 {
                     MessageBox.Show("Username not found under the specified company.", "Login Failed",
                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -85,12 +100,11 @@ namespace POS
                     return;
                 }
 
-                string storedPassword = userReader["password"].ToString();
-                string role = userReader["role"].ToString();
-                string companyName = userReader["company_name"].ToString();
-                await userReader.CloseAsync();
+                string storedPassword = reader["password"].ToString();
+                string role = reader["role"].ToString();
+                string companyName = reader["company_name"].ToString();
+                await reader.CloseAsync();
 
-                //Check if password is correct
                 if (storedPassword != password)
                 {
                     MessageBox.Show("Incorrect password.", "Login Failed",
@@ -100,29 +114,25 @@ namespace POS
                     return;
                 }
 
-                if (Properties.Settings.Default.RememberUserComp)
+                //Save again on success (clean values)
+                if (chckUserComp.Checked)
                 {
-                    Properties.Settings.Default.SavedUsername = username;
-                    Properties.Settings.Default.SavedCompany = company;
-                    Properties.Settings.Default.Save();
+                    SaveUserCompany(username, company);
                 }
-
 
                 if (role == "ADMIN")
                 {
-                    AdminDashboard admin = new AdminDashboard(username, companyName);
-                    admin.Show();
+                    new AdminDashboard(username, companyName).Show();
                     this.Hide();
                 }
                 else if (role == "CASHIER")
                 {
-                    CashierDashboard cashier = new CashierDashboard(username, companyName);
-                    cashier.Show();
+                    new CashierDashboard(username, companyName).Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Unknown role. Contact administrator.", "Access Denied",
+                    MessageBox.Show("Unknown role.", "Access Denied",
                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -132,6 +142,88 @@ namespace POS
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Centralized save method
+        private void SaveUserCompany(string username, string company)
+        {
+            if (username != "Username" && !string.IsNullOrEmpty(username))
+                Properties.Settings.Default.SavedUsername = username;
+
+            if (company != "Company Name" && !string.IsNullOrEmpty(company))
+                Properties.Settings.Default.SavedCompany = company;
+
+            Properties.Settings.Default.RememberUserComp = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void LogInForm_Load(object sender, EventArgs e)
+        {
+            bool remember = Properties.Settings.Default.RememberUserComp;
+            chckUserComp.Checked = remember; // Only trust the bool flag
+
+            if (remember)
+            {
+                
+                string savedUsername = Properties.Settings.Default.SavedUsername;
+                string savedCompany = Properties.Settings.Default.SavedCompany;
+
+                if (!string.IsNullOrEmpty(savedUsername))
+                {
+                    txtUsername.Text = savedUsername;
+                    txtUsername.InnerForeColor = Color.Black;
+                }
+
+                if (!string.IsNullOrEmpty(savedCompany))
+                {
+                    txtCompany.Text = savedCompany;
+                    txtCompany.InnerForeColor = Color.Black;
+                }
+                
+            }
+        }
+        private void LogInForm_Shown(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.RememberUserComp)
+            {
+                txtPassword.FocusInner();
+            }
+        }
+
+        private void chckUserComp_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.RememberUserComp = chckUserComp.Checked;
+
+            if (chckUserComp.Checked)
+            {
+                SaveUserCompany(txtUsername.Text.Trim(), txtCompany.Text.Trim());
+            }
+            else
+            {
+                Properties.Settings.Default.SavedUsername = string.Empty;
+                Properties.Settings.Default.SavedCompany = string.Empty;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (chckUserComp.Checked)
+            {
+                SaveUserCompany(txtUsername.Text.Trim(), txtCompany.Text.Trim());
+                
+            }
+            else
+            {
+                Properties.Settings.Default.SavedUsername = string.Empty;
+                Properties.Settings.Default.SavedCompany = string.Empty;
+                Properties.Settings.Default.RememberUserComp = false;
+                Properties.Settings.Default.Save(); // <-- this is the critical line
+            }
+        }
+
+        // ---------------- UI EVENTS ----------------
 
         private void txtUsername_Enter(object sender, EventArgs e)
         {
@@ -144,7 +236,7 @@ namespace POS
 
         private void txtUsername_Leave(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "")
+            if (string.IsNullOrEmpty(txtUsername.Text))
             {
                 txtUsername.Text = "Username";
                 txtUsername.InnerForeColor = Color.Gray;
@@ -163,7 +255,7 @@ namespace POS
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
-            if (txtPassword.Text == "")
+            if (string.IsNullOrEmpty(txtPassword.Text))
             {
                 txtPassword.Text = "Password";
                 txtPassword.InnerForeColor = Color.Gray;
@@ -182,7 +274,7 @@ namespace POS
 
         private void txtCompany_Leave(object sender, EventArgs e)
         {
-            if (txtCompany.Text == "")
+            if (string.IsNullOrEmpty(txtCompany.Text))
             {
                 txtCompany.Text = "Company Name";
                 txtCompany.InnerForeColor = Color.Gray;
@@ -191,41 +283,31 @@ namespace POS
 
         private void txt_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Down && sender == txtUsername)
+            if (e.KeyCode == Keys.Down)
             {
-                e.Handled = true;
-                this.BeginInvoke((Action)(() =>
+                if (sender == txtUsername)
                 {
                     txtPassword.FocusInner();
-                    txtPassword_Enter(txtPassword, EventArgs.Empty);
-                }));
-            }
-            else if (e.KeyCode == Keys.Down && sender == txtPassword)
-            {
-                e.Handled = true;
-                this.BeginInvoke((Action)(() =>
+                }
+                else if (sender == txtPassword)
                 {
                     txtCompany.FocusInner();
-                    txtCompany_Enter(txtCompany, EventArgs.Empty);
-                }));
-            }
-            else if (e.KeyCode == Keys.Up && sender == txtPassword)
-            {
+                }
+
                 e.Handled = true;
-                this.BeginInvoke((Action)(() =>
-                {
-                    txtUsername.FocusInner();
-                    txtUsername_Enter(txtUsername, EventArgs.Empty);
-                }));
             }
-            else if (e.KeyCode == Keys.Up && sender == txtCompany)
+            else if (e.KeyCode == Keys.Up)
             {
-                e.Handled = true;
-                this.BeginInvoke((Action)(() =>
+                if (sender == txtCompany)
                 {
                     txtPassword.FocusInner();
-                    txtPassword_Enter(txtPassword, EventArgs.Empty);
-                }));
+                }
+                else if (sender == txtPassword)
+                {
+                    txtUsername.FocusInner();
+                }
+
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -234,64 +316,5 @@ namespace POS
             }
         }
 
-        private void LogInForm_Load(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.RememberUserComp)
-            {
-                chckUserComp.Checked = true;
-
-                this.BeginInvoke((Action)(() =>
-                {
-                    string savedUsername = Properties.Settings.Default.SavedUsername;
-                    string savedCompany = Properties.Settings.Default.SavedCompany;
-
-                    if (!string.IsNullOrEmpty(savedUsername))
-                    {
-                        txtUsername.Text = savedUsername;
-                        txtUsername.InnerForeColor = Color.Black;
-                    }
-
-                    if (!string.IsNullOrEmpty(savedCompany))
-                    {
-                        txtCompany.Text = savedCompany;
-                        txtCompany.InnerForeColor = Color.Black;
-                    }
-                }));
-            }
-        }
-
-        private void chckUserComp_CheckedChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.RememberUserComp = chckUserComp.Checked;
-
-            if (!chckUserComp.Checked)
-            {
-                Properties.Settings.Default.SavedUsername = string.Empty;
-                Properties.Settings.Default.SavedCompany = string.Empty;
-            }
-
-            Properties.Settings.Default.Save();
-        }
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            base.OnFormClosing(e);
-
-            if (Properties.Settings.Default.RememberUserComp)
-            {
-                string currentUsername = txtUsername.Text.Trim();
-                string currentCompany = txtCompany.Text.Trim();
-
-                Properties.Settings.Default.SavedUsername =
-                    (currentUsername != "Username" && !string.IsNullOrEmpty(currentUsername))
-                    ? currentUsername : Properties.Settings.Default.SavedUsername;
-
-                Properties.Settings.Default.SavedCompany =
-                    (currentCompany != "Company Name" && !string.IsNullOrEmpty(currentCompany))
-                    ? currentCompany : Properties.Settings.Default.SavedCompany;
-            }
-
-            Properties.Settings.Default.Save();
-        }
     }
 }

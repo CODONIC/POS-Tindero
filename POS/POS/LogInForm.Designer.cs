@@ -94,55 +94,55 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = SystemColors.ButtonFace;
-            label8.Location = new Point(102, 527);
+            label8.Location = new Point(115, 526);
             label8.Name = "label8";
-            label8.Size = new Size(96, 16);
+            label8.Size = new Size(103, 17);
             label8.TabIndex = 4;
             label8.Text = "Developed by ";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Century Gothic", 15.75F);
             label7.ForeColor = SystemColors.ButtonFace;
             label7.Location = new Point(12, 251);
             label7.Name = "label7";
-            label7.Size = new Size(83, 25);
+            label7.Size = new Size(81, 24);
             label7.TabIndex = 3;
             label7.Text = "System";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Century Gothic", 15.75F);
             label6.ForeColor = SystemColors.ButtonFace;
             label6.Location = new Point(12, 223);
             label6.Name = "label6";
-            label6.Size = new Size(276, 25);
+            label6.Size = new Size(292, 24);
             label6.TabIndex = 2;
             label6.Text = "Point of Sales Management";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ButtonFace;
-            label5.Location = new Point(71, 544);
+            label5.Location = new Point(86, 543);
             label5.Name = "label5";
-            label5.Size = new Size(149, 20);
+            label5.Size = new Size(166, 21);
             label5.TabIndex = 1;
             label5.Text = "Tindero Corporation";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Century Gothic", 15.75F);
             label4.ForeColor = SystemColors.ButtonFace;
             label4.Location = new Point(12, 196);
             label4.Name = "label4";
-            label4.Size = new Size(240, 25);
+            label4.Size = new Size(256, 24);
             label4.TabIndex = 0;
             label4.Text = "Welcome to the Tindero";
             // 
@@ -195,11 +195,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Gill Sans Ultra Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(30, 45, 61);
-            label1.Location = new Point(475, 187);
+            label1.Location = new Point(462, 187);
             label1.Name = "label1";
-            label1.Size = new Size(68, 24);
+            label1.Size = new Size(93, 26);
             label1.TabIndex = 15;
             label1.Text = "Sign In";
             // 
@@ -275,6 +275,7 @@
             chckUserComp.Text = "Remember Username and Company";
             chckUserComp.UseVisualStyleBackColor = true;
             chckUserComp.CheckedChanged += chckUserComp_CheckedChanged;
+            chckUserComp.KeyDown += txt_KeyDown;
             // 
             // LogInForm
             // 
@@ -297,6 +298,8 @@
             Name = "LogInForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LogIn Form";
+            Load += LogInForm_Load;
+            this.Shown += LogInForm_Shown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

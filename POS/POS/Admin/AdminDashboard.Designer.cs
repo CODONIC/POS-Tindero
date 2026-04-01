@@ -98,9 +98,9 @@
             closeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(231, 76, 60);
             closeButton.FlatStyle = FlatStyle.Flat;
             closeButton.ForeColor = Color.White;
-            closeButton.Location = new Point(1223, 0);
+            closeButton.Location = new Point(1216, 0);
             closeButton.Name = "closeButton";
-            closeButton.Size = new Size(41, 40);
+            closeButton.Size = new Size(48, 48);
             closeButton.TabIndex = 17;
             closeButton.Text = " X";
             closeButton.UseVisualStyleBackColor = false;
