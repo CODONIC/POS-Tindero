@@ -55,14 +55,16 @@
             customTextBox5 = new CustomControls.CustomTextBox();
             customTextBox4 = new CustomControls.CustomTextBox();
             roundedButton4 = new RoundedButton();
-            roundedButton3 = new RoundedButton();
-            roundedButton2 = new RoundedButton();
+            btnPayment = new RoundedButton();
+            btnDiscount = new RoundedButton();
             roundedButton1 = new RoundedButton();
             label12 = new Label();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
             dgvProducts = new DataGridView();
+            roundedButton5 = new RoundedButton();
+            label1 = new Label();
             titleBar.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -81,7 +83,7 @@
             titleBar.Dock = DockStyle.Top;
             titleBar.Location = new Point(0, 0);
             titleBar.Name = "titleBar";
-            titleBar.Size = new Size(1280, 43);
+            titleBar.Size = new Size(1267, 43);
             titleBar.TabIndex = 17;
             // 
             // btnLogOut
@@ -113,7 +115,7 @@
             closeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(231, 76, 60);
             closeButton.FlatStyle = FlatStyle.Flat;
             closeButton.ForeColor = Color.White;
-            closeButton.Location = new Point(1239, 0);
+            closeButton.Location = new Point(1226, 0);
             closeButton.Name = "closeButton";
             closeButton.Size = new Size(41, 43);
             closeButton.TabIndex = 17;
@@ -342,14 +344,14 @@
             panel3.Controls.Add(customTextBox5);
             panel3.Controls.Add(customTextBox4);
             panel3.Controls.Add(roundedButton4);
-            panel3.Controls.Add(roundedButton3);
-            panel3.Controls.Add(roundedButton2);
+            panel3.Controls.Add(btnPayment);
+            panel3.Controls.Add(btnDiscount);
             panel3.Controls.Add(roundedButton1);
             panel3.Controls.Add(label12);
             panel3.Controls.Add(label11);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(label9);
-            panel3.Location = new Point(953, 263);
+            panel3.Location = new Point(953, 254);
             panel3.Name = "panel3";
             panel3.Size = new Size(274, 493);
             panel3.TabIndex = 27;
@@ -454,37 +456,39 @@
             roundedButton4.Text = "CLEAR CART";
             roundedButton4.UseVisualStyleBackColor = false;
             // 
-            // roundedButton3
+            // btnPayment
             // 
-            roundedButton3.BackColor = Color.MediumSlateBlue;
-            roundedButton3.BorderColor = Color.Transparent;
-            roundedButton3.BorderRadius = 20;
-            roundedButton3.BorderSize = 0;
-            roundedButton3.FlatAppearance.BorderSize = 0;
-            roundedButton3.FlatStyle = FlatStyle.Flat;
-            roundedButton3.ForeColor = Color.White;
-            roundedButton3.Location = new Point(59, 355);
-            roundedButton3.Name = "roundedButton3";
-            roundedButton3.Size = new Size(150, 40);
-            roundedButton3.TabIndex = 28;
-            roundedButton3.Text = "PAYMENT";
-            roundedButton3.UseVisualStyleBackColor = false;
+            btnPayment.BackColor = Color.MediumSlateBlue;
+            btnPayment.BorderColor = Color.Transparent;
+            btnPayment.BorderRadius = 20;
+            btnPayment.BorderSize = 0;
+            btnPayment.FlatAppearance.BorderSize = 0;
+            btnPayment.FlatStyle = FlatStyle.Flat;
+            btnPayment.ForeColor = Color.White;
+            btnPayment.Location = new Point(59, 355);
+            btnPayment.Name = "btnPayment";
+            btnPayment.Size = new Size(150, 40);
+            btnPayment.TabIndex = 28;
+            btnPayment.Text = "PAYMENT";
+            btnPayment.UseVisualStyleBackColor = false;
+            btnPayment.Click += btnPayment_Click;
             // 
-            // roundedButton2
+            // btnDiscount
             // 
-            roundedButton2.BackColor = Color.MediumSlateBlue;
-            roundedButton2.BorderColor = Color.Transparent;
-            roundedButton2.BorderRadius = 20;
-            roundedButton2.BorderSize = 0;
-            roundedButton2.FlatAppearance.BorderSize = 0;
-            roundedButton2.FlatStyle = FlatStyle.Flat;
-            roundedButton2.ForeColor = Color.White;
-            roundedButton2.Location = new Point(59, 309);
-            roundedButton2.Name = "roundedButton2";
-            roundedButton2.Size = new Size(150, 40);
-            roundedButton2.TabIndex = 27;
-            roundedButton2.Text = "ADD DISCOUNT";
-            roundedButton2.UseVisualStyleBackColor = false;
+            btnDiscount.BackColor = Color.MediumSlateBlue;
+            btnDiscount.BorderColor = Color.Transparent;
+            btnDiscount.BorderRadius = 20;
+            btnDiscount.BorderSize = 0;
+            btnDiscount.FlatAppearance.BorderSize = 0;
+            btnDiscount.FlatStyle = FlatStyle.Flat;
+            btnDiscount.ForeColor = Color.White;
+            btnDiscount.Location = new Point(59, 309);
+            btnDiscount.Name = "btnDiscount";
+            btnDiscount.Size = new Size(150, 40);
+            btnDiscount.TabIndex = 27;
+            btnDiscount.Text = "ADD DISCOUNT";
+            btnDiscount.UseVisualStyleBackColor = false;
+            btnDiscount.Click += btnDiscount_Click;
             // 
             // roundedButton1
             // 
@@ -499,7 +503,7 @@
             roundedButton1.Name = "roundedButton1";
             roundedButton1.Size = new Size(150, 40);
             roundedButton1.TabIndex = 26;
-            roundedButton1.Text = "NEW TRANSACTION";
+            roundedButton1.Text = "ADD TO CART";
             roundedButton1.UseVisualStyleBackColor = false;
             // 
             // label12
@@ -558,16 +562,46 @@
             // 
             dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.Location = new Point(44, 296);
+            dgvProducts.Location = new Point(44, 254);
             dgvProducts.Name = "dgvProducts";
             dgvProducts.Size = new Size(843, 460);
             dgvProducts.TabIndex = 28;
+            // 
+            // roundedButton5
+            // 
+            roundedButton5.BackColor = Color.MediumSlateBlue;
+            roundedButton5.BorderColor = Color.Transparent;
+            roundedButton5.BorderRadius = 20;
+            roundedButton5.BorderSize = 0;
+            roundedButton5.FlatAppearance.BorderSize = 0;
+            roundedButton5.FlatStyle = FlatStyle.Flat;
+            roundedButton5.ForeColor = Color.White;
+            roundedButton5.Location = new Point(737, 716);
+            roundedButton5.Name = "roundedButton5";
+            roundedButton5.Size = new Size(150, 40);
+            roundedButton5.TabIndex = 36;
+            roundedButton5.Text = "Cart Table";
+            roundedButton5.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.LightSteelBlue;
+            label1.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(44, 241);
+            label1.Name = "label1";
+            label1.Size = new Size(74, 19);
+            label1.TabIndex = 37;
+            label1.Text = "Products";
             // 
             // CashierDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1280, 768);
+            ClientSize = new Size(1267, 768);
+            Controls.Add(label1);
+            Controls.Add(roundedButton5);
             Controls.Add(dgvProducts);
             Controls.Add(panel3);
             Controls.Add(label8);
@@ -630,13 +664,15 @@
         private Label label10;
         private CustomControls.CustomTextBox customTextBox4;
         private RoundedButton roundedButton4;
-        private RoundedButton roundedButton3;
-        private RoundedButton roundedButton2;
+        private RoundedButton btnPayment;
+        private RoundedButton btnDiscount;
         private RoundedButton roundedButton1;
         private CustomControls.CustomTextBox customTextBox7;
         private CustomControls.CustomTextBox customTextBox6;
         private CustomControls.CustomTextBox customTextBox5;
         private RoundedButton btnLogOut;
         private DataGridView dgvProducts;
+        private RoundedButton roundedButton5;
+        private Label label1;
     }
 }
